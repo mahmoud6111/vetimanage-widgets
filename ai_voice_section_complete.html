@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1E293B;
+            color: #FFFFFF;
+            padding: 40px 20px;
+        }
+
+        .ai-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ai-demo {
+            background: #0F172A;
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .ai-title span {
+            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .voice-wave {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .voice-bar {
+            width: 4px;
+            background: linear-gradient(180deg, #3B82F6 0%, #10B981 100%);
+            border-radius: 4px;
+            animation: voiceWave 1s ease-in-out infinite;
+        }
+
+        .voice-bar:nth-child(1) {
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .voice-bar:nth-child(2) {
+            height: 35px;
+            animation-delay: 0.1s;
+        }
+
+        .voice-bar:nth-child(3) {
+            height: 50px;
+            animation-delay: 0.2s;
+        }
+
+        .voice-bar:nth-child(4) {
+            height: 40px;
+            animation-delay: 0.3s;
+        }
+
+        .voice-bar:nth-child(5) {
+            height: 55px;
+            animation-delay: 0.4s;
+        }
+
+        .voice-bar:nth-child(6) {
+            height: 30px;
+            animation-delay: 0.5s;
+        }
+
+        .voice-bar:nth-child(7) {
+            height: 45px;
+            animation-delay: 0.6s;
+        }
+
+        .voice-bar:nth-child(8) {
+            height: 25px;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes voiceWave {
+
+            0%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            50% {
+                transform: scaleY(0.5);
+            }
+        }
+
+        .ai-transcript {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            font-style: italic;
+            color: #CBD5E1;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .ai-extracted {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .ai-field {
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem;
+        }
+
+        .ai-field-label {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            margin-bottom: 0.25rem;
+        }
+
+        .ai-field-value {
+            font-weight: 600;
+            color: #10B981;
+            font-size: 1rem;
+        }
+
+        .ai-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .ai-text .highlight {
+            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-text p {
+            color: #94A3B8;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .ai-text ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .ai-text ul li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+
+        .ai-text ul li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 968px) {
+            .ai-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .ai-text h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .ai-demo {
+                padding: 1.5rem;
+            }
+
+            .ai-extracted {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-text h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ai-content">
+        <div class="ai-visual">
+            <div class="ai-demo">
+                <div class="ai-title">
+                    <span>AI Voice Analysis</span>
+                </div>
+                <div class="voice-wave">
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                    <div class="voice-bar"></div>
+                </div>
+                <div class="ai-transcript">
+                    "3-year-old German Shepherd with vomiting for 2 days. Temperature 39.8, heart rate 140. Suspect
+                    parvovirus."
+                </div>
+                <div class="ai-extracted">
+                    <div class="ai-field">
+                        <div class="ai-field-label">Chief Complaint</div>
+                        <div class="ai-field-value">Vomiting</div>
+                    </div>
+                    <div class="ai-field">
+                        <div class="ai-field-label">Temperature</div>
+                        <div class="ai-field-value">39.8°C</div>
+                    </div>
+                    <div class="ai-field">
+                        <div class="ai-field-label">Heart Rate</div>
+                        <div class="ai-field-value">140 bpm</div>
+                    </div>
+                    <div class="ai-field">
+                        <div class="ai-field-label">Diagnosis</div>
+                        <div class="ai-field-value">Parvovirus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ai-text">
+            <h2>
+                Your Voice. <span class="highlight">Our AI.</span><br>
+                Zero Typing.
+            </h2>
+            <p>
+                Just speak naturally about your case. Our AI powered by Groq's Whisper
+                transcribes your voice and intelligently extracts:
+            </p>
+            <ul>
+                <li>Chief complaints & symptoms</li>
+                <li>Vital signs (temp, HR, RR)</li>
+                <li>Physical exam findings</li>
+                <li>Diagnosis & treatment plans</li>
+                <li>Emergency case detection</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
